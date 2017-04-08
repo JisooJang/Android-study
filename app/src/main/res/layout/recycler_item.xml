@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.androidstudy.viewmodel.LocationDataVM"/>
+    </data>
+    <FrameLayout
+        android:id="@+id/placeHolder"
+        android:onClick="@{viewModel::locationItemClick}"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <ImageView
+            android:id="@+id/locationImage"
+            android:scaleType="centerCrop"
+            android:src="@{viewModel.locationImage}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:id="@+id/locationName"
+                android:background="#aa000000"
+                android:textColor="#ffffff"
+                android:text="@{viewModel.locationName}"
+                android:gravity="center|start"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>
