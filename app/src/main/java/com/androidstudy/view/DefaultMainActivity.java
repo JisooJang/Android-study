@@ -1,30 +1,30 @@
 package com.androidstudy.view;
 
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.androidstudy.R;
-import com.androidstudy.adapter.RecyclerAdapter;
-import com.androidstudy.databinding.ActivityMainBinding;
+import com.androidstudy.adapter.DataBindingRecyclerAdapter;
+import com.androidstudy.adapter.DefaultRecyclerAdapter;
 import com.androidstudy.model.LocationData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class DefaultMainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
     private LinearLayoutManager linearLayoutManager;
-    private RecyclerAdapter adapter;
+    private DefaultRecyclerAdapter adapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        setRecyclerView(binding.recyclerView);
+        setContentView(R.layout.default_activity_main);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        setRecyclerView(recyclerView);
     }
 
     private List<LocationData> getLocationData()
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private void setRecyclerView(RecyclerView recyclerView)
     {
         linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-        adapter = new RecyclerAdapter();
+        adapter = new DefaultRecyclerAdapter();
         adapter.setLocationDataList(getLocationData());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);

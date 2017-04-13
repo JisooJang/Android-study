@@ -17,19 +17,13 @@ import java.util.List;
  * Created by chosw on 2017-04-04.
  */
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
+public class DataBindingRecyclerAdapter extends RecyclerView.Adapter<DataBindingRecyclerAdapter.ViewHolder>{
 
     private int layoutManager = 0;
     private List<LocationData> locationDataList = new ArrayList<>();
 
-    public RecyclerAdapter()
+    public DataBindingRecyclerAdapter()
     {
-    }
-
-    public void setLayoutManager(int n)
-    {
-        layoutManager = n;
-        notifyDataSetChanged();
     }
 
     public void setLocationDataList(List<LocationData> locationDataList)

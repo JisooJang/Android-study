@@ -10,7 +10,6 @@ import com.androidstudy.model.LocationData;
 /**
  * Created by chosw on 2017-04-08.
  */
-
 public class LocationDataVM {
 
     private LocationData locationData;
